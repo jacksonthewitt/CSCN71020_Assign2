@@ -43,35 +43,6 @@ namespace REQ001
 		TEST_METHOD(setLength_lessThan1_Fails)
 		{
 			//This is testing if the setLength function will not overwrite the length if the input is < 1
-			int Input = -5;
-			int Length = 15;
-			Assert::AreNotEqual(Input, Length);
-		}
-
-		TEST_METHOD(setLength_MoreThan99_Fails)
-		{
-			//This is testing if the setLength function will not overwrite the length if the input is > 99
-			int Input = 100;
-			int Length = 15;
-			Assert::AreNotEqual(Input, Length);
-		}
-
-		TEST_METHOD(setLength_Between0And100_Succeeds)
-		{
-			//This is testing if the setLength function will overwrite the length if the input is more than 0 and less than 100.
-			int Input = 50;
-			int Length = 15;
-			Assert::AreEqual(Input, Length);
-		}
-	};
-
-	TEST_CLASS(setLengthtest)
-	{
-	public:
-
-		TEST_METHOD(setLength_lessThan1_Fails)
-		{
-			//This is testing if the setLength function will not overwrite the length if the input is < 1
 			int Input = 0;
 			int Length = 15;
 			setLength(Input, Length);
@@ -94,6 +65,38 @@ namespace REQ001
 			int Length = 15;
 			setLength(Input, Length);
 			Assert::AreEqual(Input, Length);
+		}
+	};
+
+	TEST_CLASS(setWidthtest)
+	{
+	public:
+
+		TEST_METHOD(setWidth_lessThan1_Fails)
+		{
+			//This is testing if the setWidth function will not overwrite the width if the input is < 1
+			int Input = 0;
+			int Width = 15;
+			setWidth(Input, Width);
+			Assert::AreNotEqual(Input, Width);
+		}
+
+		TEST_METHOD(setWidth_MoreThan99_Fails)
+		{
+			//This is testing if the setWidth function will not overwrite the width if the input is > 99
+			int Input = 100;
+			int Width = 15;
+			setWidth(Input, Width);
+			Assert::AreNotEqual(Input, Width);
+		}
+
+		TEST_METHOD(setWidth_Between0And100_Succeeds)
+		{
+			//This is testing if the setWidth function will overwrite the width if the input is more than 0 and less than 100.
+			int Input = 50;
+			int Width = 15;
+			setWidth(Input, Width);
+			Assert::AreEqual(Input, Width);
 		}
 	};
 }
