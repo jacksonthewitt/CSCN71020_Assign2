@@ -64,4 +64,36 @@ namespace REQ001
 			Assert::AreEqual(Input, Length);
 		}
 	};
+
+	TEST_CLASS(setLengthtest)
+	{
+	public:
+
+		TEST_METHOD(setLength_lessThan1_Fails)
+		{
+			//This is testing if the setLength function will not overwrite the length if the input is < 1
+			int Input = 0;
+			int Length = 15;
+			setLength(Input, Length);
+			Assert::AreNotEqual(Input, Length);
+		}
+
+		TEST_METHOD(setLength_MoreThan99_Fails)
+		{
+			//This is testing if the setLength function will not overwrite the length if the input is > 99
+			int Input = 100;
+			int Length = 15;
+			setLength(Input, Length);
+			Assert::AreNotEqual(Input, Length);
+		}
+
+		TEST_METHOD(setLength_Between0And100_Succeeds)
+		{
+			//This is testing if the setLength function will overwrite the length if the input is more than 0 and less than 100.
+			int Input = 50;
+			int Length = 15;
+			setLength(Input, Length);
+			Assert::AreEqual(Input, Length);
+		}
+	};
 }
