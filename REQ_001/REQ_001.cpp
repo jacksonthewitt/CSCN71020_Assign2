@@ -1,10 +1,10 @@
 #include "pch.h"
 #include "CppUnitTest.h"
 
-extern "C" int getPerimeter(int, int);
-extern "C" int getArea(int, int);
-extern "C" void setLength(int, int);
-extern "C" void setWidth(int, int);
+extern "C" int getPerimeter(int *, int *);
+extern "C" int getArea(int *, int *);
+extern "C" void setLength(int, int *);
+extern "C" void setWidth(int, int *);
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -18,7 +18,9 @@ namespace REQ001
 		{
 			//This is testing the getPerimeter function by using (5+10)*2.
 			int Result = 0;
-			Result = getPerimeter(5, 10);
+			int Num1 = 5;
+			int Num2 = 10;
+			Result = getPerimeter(&Num1, &Num2);
 			Assert::AreEqual(30, Result);
 		}
 	};
@@ -31,7 +33,9 @@ namespace REQ001
 		{
 			//This is testing the getArea function by using 5*10
 			int Result = 0;
-			Result = getArea(5, 10);
+			int Num1 = 5;
+			int Num2 = 10;
+			Result = getArea(&Num1, &Num2);
 			Assert::AreEqual(50, Result);
 		}
 	};
@@ -45,7 +49,7 @@ namespace REQ001
 			//This is testing if the setLength function will not overwrite the length if the input is < 1
 			int Input = 0;
 			int Length = 15;
-			setLength(Input, Length);
+			setLength(Input, &Length);
 			Assert::AreNotEqual(Input, Length);
 		}
 
@@ -54,7 +58,7 @@ namespace REQ001
 			//This is testing if the setLength function will not overwrite the length if the input is > 99
 			int Input = 100;
 			int Length = 15;
-			setLength(Input, Length);
+			setLength(Input, &Length);
 			Assert::AreNotEqual(Input, Length);
 		}
 
@@ -63,7 +67,7 @@ namespace REQ001
 			//This is testing if the setLength function will overwrite the length if the input is more than 0 and less than 100.
 			int Input = 50;
 			int Length = 15;
-			setLength(Input, Length);
+			setLength(Input, &Length);
 			Assert::AreEqual(Input, Length);
 		}
 	};
@@ -77,7 +81,7 @@ namespace REQ001
 			//This is testing if the setWidth function will not overwrite the width if the input is < 1
 			int Input = 0;
 			int Width = 15;
-			setWidth(Input, Width);
+			setWidth(Input, &Width);
 			Assert::AreNotEqual(Input, Width);
 		}
 
@@ -86,7 +90,7 @@ namespace REQ001
 			//This is testing if the setWidth function will not overwrite the width if the input is > 99
 			int Input = 100;
 			int Width = 15;
-			setWidth(Input, Width);
+			setWidth(Input, &Width);
 			Assert::AreNotEqual(Input, Width);
 		}
 
@@ -95,7 +99,7 @@ namespace REQ001
 			//This is testing if the setWidth function will overwrite the width if the input is more than 0 and less than 100.
 			int Input = 50;
 			int Width = 15;
-			setWidth(Input, Width);
+			setWidth(Input, &Width);
 			Assert::AreEqual(Input, Width);
 		}
 	};
